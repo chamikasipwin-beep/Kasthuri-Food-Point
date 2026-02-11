@@ -1,20 +1,46 @@
 package com.kasthuri.foodpoint.config;
 
 import com.kasthuri.foodpoint.entity.MenuItem;
+import com.kasthuri.foodpoint.entity.Role;
+import com.kasthuri.foodpoint.entity.User;
 import com.kasthuri.foodpoint.repository.MenuItemRepository;
+import com.kasthuri.foodpoint.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 
 @Component
 public class DataSeeder implements CommandLineRunner {
         @Autowired
         private MenuItemRepository menuItemRepository;
 
+        @Autowired
+        private UserRepository userRepository;
+
+        @Autowired
+        private PasswordEncoder passwordEncoder;
+
         @Override
         public void run(String... args) throws Exception {
+                // Seed Users
+                if (!userRepository.existsByUsername("admin")) {
+                        User admin = new User("admin", passwordEncoder.encode("admin123"), "admin@kasthuri.com",
+                                        "Admin User");
+                        admin.setRoles(Collections.singleton(Role.ROLE_ADMIN));
+                        userRepository.save(admin);
+                }
+
+                if (!userRepository.existsByUsername("customer")) {
+                        User customer = new User("customer", passwordEncoder.encode("customer123"),
+                                        "customer@gmail.com", "John Doe");
+                        customer.setRoles(Collections.singleton(Role.ROLE_CUSTOMER));
+                        userRepository.save(customer);
+                }
+
                 menuItemRepository.deleteAll();
 
                 // 1. Kottu

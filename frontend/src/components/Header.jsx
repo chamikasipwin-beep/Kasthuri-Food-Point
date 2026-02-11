@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { useSpring, animated } from '@react-spring/web';
-import { useCart } from '../context/CartContext';
-import './Header.css';
+import { useAuth } from '../context/AuthContext';
 
-const Header = ({ onCartClick, onNavClick }) => {
+const Header = ({ onCartClick, onNavClick, onLoginClick, onAdminClick }) => {
     const { getTotalItems } = useCart();
+    const { user, logout, isAdmin } = useAuth();
     const [scrolled, setScrolled] = useState(false);
 
     useState(() => {
@@ -21,16 +19,16 @@ const Header = ({ onCartClick, onNavClick }) => {
     });
 
     const handleNavClick = (e, targetId) => {
-        if (onNavClick) {
+        if (targetId === 'home') {
             onNavClick();
-            // Small delay to allow App to switch view before scrolling
-            setTimeout(() => {
-                const element = document.getElementById(targetId);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
         }
+
+        setTimeout(() => {
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100);
     };
 
     return (
@@ -44,6 +42,11 @@ const Header = ({ onCartClick, onNavClick }) => {
                     <a href="#home" className="nav-link" onClick={(e) => handleNavClick(e, 'home')}>Home</a>
                     <a href="#menu" className="nav-link" onClick={(e) => handleNavClick(e, 'menu')}>Menu</a>
                     <a href="#about" className="nav-link" onClick={(e) => handleNavClick(e, 'about')}>About</a>
+
+                    {isAdmin() && (
+                        <a href="#admin" className="nav-link admin-link" onClick={(e) => { e.preventDefault(); onAdminClick(); }}>Admin</a>
+                    )}
+
                     <button className="cart-button" onClick={onCartClick}>
                         <span className="cart-icon">🛒</span>
                         {getTotalItems() > 0 && (
@@ -52,6 +55,15 @@ const Header = ({ onCartClick, onNavClick }) => {
                             </animated.span>
                         )}
                     </button>
+
+                    {user ? (
+                        <div className="user-profile">
+                            <span className="user-name">👤 {user.username}</span>
+                            <button className="btn-logout" onClick={logout}>Logout</button>
+                        </div>
+                    ) : (
+                        <button className="btn-login" onClick={onLoginClick}>Login</button>
+                    )}
                 </nav>
             </div>
         </header>
