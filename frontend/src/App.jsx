@@ -58,35 +58,56 @@ function App() {
                     onLoginClick={handleLoginClick}
                     onAdminClick={handleAdminClick}
                 />
-                <Hero />
-                <Menu />
-                <About />
-                <Cart
-                    isOpen={isCartOpen}
-                    onClose={handleCartClose}
-                    onCheckout={handleCheckout}
-                />
-            </>
+                {view === 'home' && (
+                    <>
+                        <Hero />
+                        <Menu />
+                        <About />
+                        <Cart
+                            isOpen={isCartOpen}
+                            onClose={handleCartClose}
+                            onCheckout={handleCheckout}
+                        />
+                    </>
                 )}
 
-            {view === 'checkout' && (
-                <>
-                    <Header onCartClick={handleCartClick} onNavClick={handleBackToHome} />
+                {view === 'login' && (
+                    <div className="auth-overlay">
+                        <Login
+                            onSwitch={handleRegisterClick}
+                            onSuccess={handleBackToHome}
+                        />
+                    </div>
+                )}
+
+                {view === 'register' && (
+                    <div className="auth-overlay">
+                        <Register
+                            onSwitch={handleLoginClick}
+                            onSuccess={handleLoginClick}
+                        />
+                    </div>
+                )}
+
+                {view === 'admin' && (
+                    <AdminDashboard />
+                )}
+
+                {view === 'checkout' && (
                     <Checkout
                         onSuccess={handleOrderSuccess}
                         onBack={handleBackToCart}
                     />
-                </>
-            )}
+                )}
 
-            {view === 'success' && completedOrder && (
-                <OrderSuccess
-                    order={completedOrder}
-                    onBackToHome={handleBackToHome}
-                />
-            )}
-        </div>
-        </CartProvider >
+                {view === 'success' && completedOrder && (
+                    <OrderSuccess
+                        order={completedOrder}
+                        onBackToHome={handleBackToHome}
+                    />
+                )}
+            </div>
+        </CartProvider>
     );
 }
 
