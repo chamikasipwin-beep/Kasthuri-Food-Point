@@ -60,7 +60,7 @@ const OrderSuccess = ({ order, onBackToHome }) => {
                         </div>
                         <div className="detail-row total-row">
                             <span className="detail-label">Total Amount:</span>
-                            <span className="detail-value total-amount">₹{order.totalAmount.toFixed(2)}</span>
+                            <span className="detail-value total-amount">Rs.{order.totalAmount.toFixed(2)}</span>
                         </div>
                     </div>
 

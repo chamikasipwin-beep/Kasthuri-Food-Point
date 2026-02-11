@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CartProvider } from './context/CartContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import About from './components/About';
 import Menu from './components/Menu';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
@@ -46,8 +47,9 @@ function App() {
             <div className="app">
                 {view === 'home' && (
                     <>
-                        <Header onCartClick={handleCartClick} />
+                        <Header onCartClick={handleCartClick} onNavClick={handleBackToHome} />
                         <Hero />
+                        <About />
                         <Menu />
                         <Cart
                             isOpen={isCartOpen}
@@ -59,7 +61,7 @@ function App() {
 
                 {view === 'checkout' && (
                     <>
-                        <Header onCartClick={handleCartClick} />
+                        <Header onCartClick={handleCartClick} onNavClick={handleBackToHome} />
                         <Checkout
                             onSuccess={handleOrderSuccess}
                             onBack={handleBackToCart}

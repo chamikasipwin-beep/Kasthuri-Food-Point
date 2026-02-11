@@ -25,7 +25,7 @@ const Menu = () => {
         }
     };
 
-    const categories = ['All', ...new Set(menuItems.map(item => item.category))];
+    const categories = ['All', 'Kottu', 'Fried Rice', 'Noodles', 'Pasta', 'Devilled Dish', 'Fried Dish', 'Omelette', 'Family Pack', 'Specials'];
 
     const filteredItems = selectedCategory === 'All'
         ? menuItems
@@ -56,7 +56,7 @@ const Menu = () => {
         <section className="menu section" id="menu">
             <div className="container">
                 <h2 className="section-title">Our Menu</h2>
-                <p className="section-subtitle">Explore our delicious selection of authentic Indian dishes</p>
+                <p className="section-subtitle">Explore our delicious selection of authentic Sri Lankan dishes</p>
 
                 <div className="category-filters">
                     {categories.map(category => (
@@ -83,7 +83,7 @@ const Menu = () => {
                                     <h3 className="menu-item-name">{item.name}</h3>
                                     <p className="menu-item-description">{item.description}</p>
                                     <div className="menu-item-footer">
-                                        <span className="menu-item-price">₹{item.price.toFixed(2)}</span>
+                                        <span className="menu-item-price">Rs.{item.price.toFixed(2)}</span>
                                         <button
                                             className="btn btn-primary add-to-cart-btn"
                                             onClick={() => handleAddToCart(item)}

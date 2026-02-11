@@ -1,0 +1,30 @@
+Testing Node and NPM... 
+v22.18.0
+NPM version: 
+10.9.3
+Listing directory: 
+ Volume in drive C has no label.
+ Volume Serial Number is B067-1B51
+
+ Directory of C:\Users\imax.computer\.gemini\antigravity\scratch\kasthuri-food-point\frontend
+
+02/11/2026  06:08 PM    <DIR>          .
+02/11/2026  05:42 PM    <DIR>          ..
+02/11/2026  05:42 PM               253 .gitignore
+02/11/2026  06:07 PM               287 debug.bat
+02/11/2026  05:58 PM               381 index.html
+02/11/2026  06:06 PM                22 node_test.txt
+02/11/2026  06:08 PM                79 output.txt
+02/11/2026  05:58 PM               759 package.json
+02/11/2026  05:41 PM               660 README.md
+02/11/2026  05:41 PM    <DIR>          src
+02/11/2026  05:58 PM               369 vite.config.js
+               8 File(s)          2,810 bytes
+               3 Dir(s)  32,824,737,792 bytes free
+Node modules check: 
+ Volume in drive C has no label.
+ Volume Serial Number is B067-1B51
+
+ Directory of C:\Users\imax.computer\.gemini\antigravity\scratch\kasthuri-food-point\frontend
+
+File Not Found

@@ -110,7 +110,7 @@ const Checkout = ({ onSuccess, onBack }) => {
                                     className="btn btn-primary submit-btn"
                                     disabled={loading}
                                 >
-                                    {loading ? 'Placing Order...' : `Place Order - ₹${getTotalPrice().toFixed(2)}`}
+                                    {loading ? 'Placing Order...' : `Place Order - Rs.${getTotalPrice().toFixed(2)}`}
                                 </button>
                             </form>
                         </div>
@@ -121,13 +121,13 @@ const Checkout = ({ onSuccess, onBack }) => {
                                 {cartItems.map(item => (
                                     <div key={item.id} className="summary-item">
                                         <span>{item.name} × {item.quantity}</span>
-                                        <span>₹{(item.price * item.quantity).toFixed(2)}</span>
+                                        <span>Rs.{(item.price * item.quantity).toFixed(2)}</span>
                                     </div>
                                 ))}
                             </div>
                             <div className="summary-total">
                                 <span>Total</span>
-                                <span className="total-price">₹{getTotalPrice().toFixed(2)}</span>
+                                <span className="total-price">Rs.{getTotalPrice().toFixed(2)}</span>
                             </div>
                         </div>
                     </div>

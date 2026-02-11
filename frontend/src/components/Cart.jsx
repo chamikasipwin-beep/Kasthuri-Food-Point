@@ -51,7 +51,7 @@ const Cart = ({ isOpen, onClose, onCheckout }) => {
                                 <img src={item.imageUrl} alt={item.name} className="cart-item-image" />
                                 <div className="cart-item-details">
                                     <h4>{item.name}</h4>
-                                    <p className="cart-item-price">₹{item.price.toFixed(2)}</p>
+                                    <p className="cart-item-price">Rs.{item.price.toFixed(2)}</p>
                                 </div>
                                 <div className="cart-item-controls">
                                     <button
@@ -83,7 +83,7 @@ const Cart = ({ isOpen, onClose, onCheckout }) => {
                     <div className="cart-footer">
                         <div className="cart-total">
                             <span>Total:</span>
-                            <span className="total-amount">₹{getTotalPrice().toFixed(2)}</span>
+                            <span className="total-amount">Rs.{getTotalPrice().toFixed(2)}</span>
                         </div>
                         <button className="btn btn-primary checkout-btn" onClick={onCheckout}>
                             Proceed to Checkout

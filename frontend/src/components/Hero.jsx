@@ -24,17 +24,10 @@ const Hero = () => {
             <div className="hero-background"></div>
             <div className="container hero-content">
                 <animated.div style={fadeIn} className="hero-text">
-                    <h1>Authentic Indian Cuisine</h1>
+                    <h1>Authentic Sri Lankan Cuisine</h1>
                     <p className="hero-subtitle">
-                        Experience the rich flavors of traditional Indian food, crafted with love and served with care
+                        Experience the rich flavors of traditional Sri Lankan food in Wagolla, Embogama.
                     </p>
-                    <animated.button
-                        style={buttonSpring}
-                        className="btn btn-primary hero-cta"
-                        onClick={scrollToMenu}
-                    >
-                        Order Now 🍽️
-                    </animated.button>
                 </animated.div>
             </div>
         </section>
