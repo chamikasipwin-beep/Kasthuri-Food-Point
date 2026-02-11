@@ -49,8 +49,8 @@ function App() {
                     <>
                         <Header onCartClick={handleCartClick} onNavClick={handleBackToHome} />
                         <Hero />
-                        <About />
                         <Menu />
+                        <About />
                         <Cart
                             isOpen={isCartOpen}
                             onClose={handleCartClose}

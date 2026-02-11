@@ -42,8 +42,8 @@ const Header = ({ onCartClick, onNavClick }) => {
                 </div>
                 <nav className="nav">
                     <a href="#home" className="nav-link" onClick={(e) => handleNavClick(e, 'home')}>Home</a>
-                    <a href="#about" className="nav-link" onClick={(e) => handleNavClick(e, 'about')}>About</a>
                     <a href="#menu" className="nav-link" onClick={(e) => handleNavClick(e, 'menu')}>Menu</a>
+                    <a href="#about" className="nav-link" onClick={(e) => handleNavClick(e, 'about')}>About</a>
                     <button className="cart-button" onClick={onCartClick}>
                         <span className="cart-icon">🛒</span>
                         {getTotalItems() > 0 && (
